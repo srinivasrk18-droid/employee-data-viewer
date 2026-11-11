@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dynamic CSV Viewer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>CSV Data Viewer</h1>
+
+    <div class="upload-section">
+        <input type="file" id="csvFile" accept=".csv">
+        <button onclick="loadCSV()">Upload CSV</button>
+    </div>
+
+    <div class="toolbar">
+
+        <input type="text"
+               id="searchInput"
+               placeholder="Search records..."
+               oninput="searchData()">
+
+        <select id="pageSize" onchange="displayTable()">
+            <option value="10">10 Records</option>
+            <option value="25">25 Records</option>
+            <option value="50">50 Records</option>
+        </select>
+
+        <button onclick="downloadCSV()">
+            Download CSV
+        </button>
+
+    </div>
+
+    <div class="table-container">
+
+        <table id="dataTable">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+
+    <div class="pagination">
+        <button onclick="previousPage()">Previous</button>
+        <span id="pageInfo">Page 1</span>
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <p id="recordInfo"></p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
